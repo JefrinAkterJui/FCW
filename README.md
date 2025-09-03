@@ -1,69 +1,49 @@
-# React + TypeScript + Vite
+# CryptoView - Live Cryptocurrency Price Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
+CryptoView is a sleek and modern front-end application for displaying real-time cryptocurrency data. Built with **React**, **TypeScript**, and **TailwindCSS**, it provides a detailed and user-friendly interface for tracking the crypto market.
 
-Currently, two official plugins are available:
+The application features a dual-page layout:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home Page:** Offers a quick glance at the market with a "Top 5 Coins" list and a dynamic search bar.
+- **All Coins Page:** Provides a comprehensive grid view of the top 100 cryptocurrencies with detailed metrics.
 
-## Expanding the ESLint configuration
+Key features include live data fetching with a **60-second auto-refresh**, a fully responsive design for all devices, and a professional, data-rich UI.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### General Features
+- **Live Data:** Fetches and displays up-to-the-minute cryptocurrency data.
+- **Auto-Refresh:** Data automatically updates every 60 seconds to keep you informed.
+- **Fully Responsive:** Optimized for desktops, tablets, and mobile devices.
+- **Modern Tech Stack:** Built with the latest front-end technologies for a robust and maintainable codebase.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### UI & UX Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Feature         | Description                                                                 |
+|-----------------|-----------------------------------------------------------------------------|
+| Professional UI | Displays detailed metrics: Price, Market Cap, 24h Volume, 24h High/Low, and 24h Price Change %. |
+| Home Page       | Features a Google-style search bar and a "Top 5 Coins" list for a quick glance. |
+| All Coins Page  | A comprehensive grid view of the top 100 cryptocurrencies.                 |
+| Dynamic Search  | Instantly filters coins by name or symbol on the home page.                 |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tech Stack
+- **React:** A JavaScript library for building user interfaces.
+- **TypeScript:** A typed superset of JavaScript that enhances code quality and maintainability.
+- **TailwindCSS:** A utility-first CSS framework for rapid UI development.
+- **Public Cryptocurrency API:** The data source for all cryptocurrency information.
+
+---
+
+## Project Structure
+The project is contained within a single file (`crypto-tracker.tsx`) for simplicity and ease of use in specific environments.
+
+- **Type Definitions:** TypeScript interfaces define the shape of the Coin data object.
+- **Helper Components:** Reusable components like `LoadingSpinner`, `ErrorDisplay`, and `DataStat` handle different UI states.
+- **UI Components:** `CryptoCard`, `TopCoinItem`, and `Navbar` are responsible for the main UI elements.
+- **Page Components:** `HomePage` and `AllCoinsPage` manage the layout for the two distinct views.
+- **Main App Component:** The `App` component orchestrates state management, API calls, and renders the appropriate page.
