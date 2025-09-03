@@ -1,11 +1,19 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/shared/Header";
 import Footer from "../components/shared/Footer";
+import Navbar from "../components/shared/Header";
+
+import React, { useState } from "react";
+import type { Page } from "../components/Home/Hero/Hero";
 
 const Main = () => {
+  const [activePage, setActivePage] = useState<Page>("home"); 
+
+  // <header className="mb-8">
+  //         <Navbar activePage={page} setPage={setPage} />
+  //       </header>
   return (
     <div>
-      <Header />
+      <Navbar activePage={activePage} setPage={setActivePage} />
       <Outlet />
       <Footer />
     </div>
